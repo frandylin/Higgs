@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Turnover Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        input {
+            padding: 10px;
+            margin: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        #result {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Turnover Calculator</h2>
+
+    <label for="payout">Payout:</label>
+    <input type="number" id="payout" step="0.01">
+
+    <label for="balanceDeduction">Balance Deduction:</label>
+    <input type="number" id="balanceDeduction" step="0.01">
+
+    <button onclick="calculateTurnover()">Calculate</button>
+
+    <div id="result"></div>
+
+    <script>
+        function calculateTurnover() {
+            var payout = parseFloat(document.getElementById('payout').value);
+            var balanceDeduction = parseFloat(document.getElementById('balanceDeduction').value);
+            var resultElement = document.getElementById('result');
+
+            if (payout / balanceDeduction > 0.5 && payout / balanceDeduction < 1.5) {
+                resultElement.textContent = 'Invalid turnover';
+            } else {
+                resultElement.textContent = 'Valid turnover';
+            }
+        }
+    </script>
+
+</body>
+</html>
